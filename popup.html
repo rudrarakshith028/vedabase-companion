@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Vedabase Companion</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="vc-header">
+    <div class="vc-header-title">Vedabase Companion</div>
+    <div class="vc-tabs">
+      <button class="vc-tab vc-tab-active" data-tab="listen">Listen</button>
+      <button class="vc-tab" data-tab="saved">Saved</button>
+      <button class="vc-tab" data-tab="history">History</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="tab-listen" class="vc-panel">
+      <div class="vc-item">
+        <div class="vc-item-ref">Voice recognition</div>
+        <div class="vc-item-meta" id="listen-status">Not listening</div>
+        <div class="vc-item-actions">
+          <button id="btn-start" class="vc-btn-primary">Start listening</button>
+          <button id="btn-stop">Stop</button>
+        </div>
+      </div>
+      <div class="vc-item">
+        <div class="vc-item-ref">Settings</div>
+        <label class="vc-label">Backend URL</label>
+        <input id="backend-url" type="text" class="vc-input" placeholder="http://127.0.0.1:8000" />
+        <div class="vc-item-meta" id="backend-status">Checking backend…</div>
+        <label class="vc-label">Language</label>
+        <select id="language" class="vc-input">
+          <option value="hi">Hindi (best for Sanskrit)</option>
+          <option value="sa">Sanskrit</option>
+          <option value="en">English</option>
+          <option value="auto">Auto-detect</option>
+        </select>
+        <label class="vc-label">Hint words (optional)</label>
+        <input id="prompt" type="text" class="vc-input" placeholder="karmany evadhikaras te, dharma-kshetre..." />
+        <div class="vc-item-actions"><button id="btn-save-settings">Save settings</button></div>
+        <div class="vc-item-meta" id="settings-msg"></div>
+      </div>
+    </section>
+    <section id="tab-saved" class="vc-panel vc-hidden"></section>
+    <section id="tab-history" class="vc-panel vc-hidden"></section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

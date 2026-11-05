@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Vedabase Companion (backend)",
+  "version": "3.0.2",
+  "description": "Listens to a YouTube lecture's audio, recognises quoted Sanskrit shlokas and links to the matching Vedabase page.",
+  "permissions": [
+    "storage",
+    "tabCapture",
+    "offscreen",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://m.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Vedabase Companion"
+  }
+}
